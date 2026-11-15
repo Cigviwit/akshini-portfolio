@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Akshini Randive — UI/UX Designer</title>
+  <meta name="description" content="Akshini Randive is a UI/UX and product designer in Pune, India, turning complex problems into simple experiences. Her portfolio is an operating system: open her case studies, résumé and process.">
+  <meta name="theme-color" content="#F3EEE6">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AkshiniOS — the portfolio of Akshini Randive, UI/UX Designer">
+  <meta property="og:description" content="A portfolio you can use. Case studies, process and résumé, inside a calm little operating system.">
+  <meta property="og:image" content="https://akshini-randive.pages.dev/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://akshini-randive.pages.dev/">
+  <link rel="canonical" href="https://akshini-randive.pages.dev/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Kalam:wght@300;400&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/avatar.webp" as="image">
+  <link rel="stylesheet" href="css/os.css">
+  <script>
+    // Theme before paint, so nothing flashes.
+    try {
+      var q = new URLSearchParams(location.search).get('theme');
+      var t = (q === 'light' || q === 'dark') ? q : (localStorage.getItem('aos.theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      document.documentElement.dataset.theme = t;
+      if (new URLSearchParams(location.search).has('still')) document.documentElement.classList.add('is-still');
+      if (sessionStorage.getItem('aos.booted') || location.hash || document.documentElement.classList.contains('is-still')) document.documentElement.classList.add('no-boot');
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="wall" aria-hidden="true">
+    <div class="wall__fallback"></div>
+    <canvas class="wall__gl"></canvas>
+    <div class="wall__grain"></div>
+  </div>
+
+  <!-- ===== Desktop shell ===== -->
+  <div class="desktop" id="desktop">
+    <header class="menubar" data-layer="Menu bar">
+      <nav class="menubar__left" aria-label="Menu bar">
+        <button class="mb mb--logo" type="button" data-menu="logo" aria-label="AkshiniOS menu"></button>
+        <button class="mb mb--app" type="button" data-menu="app"><span class="mb__appname">Finder</span></button>
+        <button class="mb" type="button" data-menu="file">File</button>
+        <button class="mb" type="button" data-menu="view">View</button>
+        <button class="mb" type="button" data-menu="go">Go</button>
+        <button class="mb" type="button" data-menu="help">Help</button>
+      </nav>
+      <div class="menubar__right">
+        <button class="mb mb--status" type="button" data-open-app="contact"><i class="live"></i><span>Available for Summer ’26</span></button>
+        <button class="mb mb--icon" type="button" data-action="inspect" aria-label="Toggle Inspect mode" aria-pressed="false"></button>
+        <button class="mb mb--icon" type="button" data-action="spotlight" aria-label="Search (Ctrl K)"></button>
+        <button class="mb mb--icon" type="button" data-menu="cc" aria-label="Control Centre"></button>
+        <span class="mb mb--clock" aria-live="off"></span>
+      </div>
+    </header>
+
+    <main class="desk" id="desk" aria-label="Desktop">
+      <section class="hero" data-layer="Wallpaper / Hero">
+        <p class="hero__eyebrow"><span class="hero__star"></span>Portfolio of a UI/UX &amp; product designer</p>
+        <h1 class="hero__name"><span class="hero__line">Akshini</span> <span class="hero__line hero__line--it">Randive</span></h1>
+        <p class="hero__lede">Turning complex problems into <em>simple</em> experiences.</p>
+        <p class="hero__body">B.Des UI/UX student at MIT-WPU, Pune. Research, interaction design and visual systems — from startup apps to IoT-connected products.</p>
+        <div class="hero__cta">
+          <button class="btn btn--primary btn--lg" type="button" data-open-app="work">Open my work</button>
+          <button class="btn btn--glass btn--lg" type="button" data-open-app="contact">Say hello</button>
+        </div>
+      </section>
+
+      <div class="icons" role="list" aria-label="Desktop items"></div>
+
+      <aside class="widgets" aria-label="Widgets">
+        <div class="widget widget--clock" data-layer="Widget / Clock">
+          <svg class="aclock" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" class="aclock__face"/>
+            <g class="aclock__ticks"></g>
+            <line x1="50" y1="50" x2="50" y2="27" class="aclock__h"/>
+            <line x1="50" y1="50" x2="50" y2="16" class="aclock__m"/>
+            <line x1="50" y1="56" x2="50" y2="14" class="aclock__s"/>
+            <circle cx="50" cy="50" r="2.6" class="aclock__pin"/>
+          </svg>
+          <div class="widget__cap"><strong>Pune</strong><span class="clock-pune"></span></div>
+        </div>
+        <div class="widget widget--status" data-layer="Widget / Status">
+          <p class="widget__k">Right now</p>
+          <p class="widget__now"></p>
+          <div class="widget__rows">
+            <p><i class="live"></i>Open to Summer ’26 internships &amp; freelance</p>
+            <p><span class="wdot"></span>B.Des UI/UX · MIT-WPU · ’27</p>
+          </div>
+        </div>
+        <button class="widget widget--radio" type="button" data-layer="Widget / Radio" aria-label="Play ambient radio">
+          <span class="miniviny"></span>
+          <span class="widget__cap"><strong>Chai &amp; Rain</strong><span class="radio-state">Ambient radio · Play</span></span>
+        </button>
+      </aside>
+
+      <div class="stickies" aria-label="Your sticky notes"></div>
+    </main>
+
+    <div class="windows" id="windows"></div>
+    <div class="snap-ghost" aria-hidden="true"></div>
+
+    <nav class="dock" aria-label="Dock" data-layer="Dock"><div class="dock__tray"></div></nav>
+  </div>
+
+  <!-- ===== Phone shell ===== -->
+  <div class="phone" id="phone">
+    <header class="sbar" aria-hidden="true"><span class="sbar__time"></span><span class="sbar__isl"></span><span class="sbar__icons"></span></header>
+    <main class="home">
+      <section class="hwidget" data-layer="Widget / Hello">
+        <div class="hwidget__top"><img src="assets/avatar.webp" alt="Akshini Randive" class="hwidget__av"><span class="pill pill--live"><i></i>Open to Summer ’26</span></div>
+        <h1 class="hwidget__name">Akshini <em>Randive</em></h1>
+        <p class="hwidget__lede">UI/UX designer turning complex problems into <em>simple</em> experiences.</p>
+      </section>
+      <section class="hwork" aria-label="Case studies"></section>
+      <div class="hgrid" role="list" aria-label="Apps"></div>
+      <p class="home__hint">Tap an app to open it</p>
+    </main>
+    <nav class="hdock" aria-label="Dock"></nav>
+    <div class="sheets"></div>
+  </div>
+
+  <!-- ===== Overlays ===== -->
+  <div class="menus" aria-live="off"></div>
+  <div class="notifs" aria-live="polite"></div>
+  <div class="inspect" aria-hidden="true"><div class="inspect__box"><span class="inspect__size"></span></div><div class="inspect__pad"></div><div class="inspect__card"></div><div class="inspect__banner"></div></div>
+  <!-- Akshini's live cursor, cursor chat and follow mode -->
+  <div class="presence">
+    <button class="pcur" type="button" aria-label="Talk to Akshini" tabindex="-1">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.5l7.5 18 2.4-7.6 7.6-2.4z" fill="currentColor" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <span class="pcur__name">Akshini</span>
+    </button>
+    <div class="pbub" role="status" aria-live="polite"></div>
+    <form class="cchat" hidden><span class="cchat__name">You</span><input class="cchat__in" maxlength="140" placeholder="Say something to Akshini…" aria-label="Chat with Akshini" autocomplete="off"></form>
+  </div>
+  <div class="follow-frame" aria-hidden="true"></div>
+  <div class="follow-pill" role="status"><i></i><span>Following Akshini</span><button type="button">Stop</button></div>
+
+  <div class="hello" aria-label="Welcome. Click anywhere to begin." role="button">
+    <svg class="hello__svg" viewBox="0 0 1200 460" aria-hidden="true">
+      <defs>
+        <linearGradient id="hello-ink" gradientUnits="userSpaceOnUse" x1="250" y1="0" x2="950" y2="0">
+          <stop offset="0" class="hs1"/><stop offset=".5" class="hs2"/><stop offset="1" class="hs3"/>
+        </linearGradient>
+        <clipPath id="hello-clip"><rect class="hello__clip" x="0" y="0" width="0" height="460"/></clipPath>
+      </defs>
+      <text class="hello__word" x="600" y="300" text-anchor="middle" clip-path="url(#hello-clip)"></text>
+    </svg>
+    <p class="hello__go"><span>Click anywhere to begin</span></p>
+  </div>
+
+  <noscript>
+    <div class="nojs">
+      <h1>Akshini Randive — UI/UX Designer, Pune</h1>
+      <p>Turning complex problems into simple experiences. Case studies: Kind Hive, Pill Mate, Watt’s Up, Linkpreneur.</p>
+      <p>Email <a href="mailto:akshinirandive03@gmail.com">akshinirandive03@gmail.com</a> · <a href="https://www.linkedin.com/in/akshini-randive-02a3a8279/">LinkedIn</a> · <a href="https://www.behance.net/akshinirandive">Behance</a></p>
+    </div>
+  </noscript>
+
+  <script type="module" src="js/os.js"></script>
+</body>
+</html>
